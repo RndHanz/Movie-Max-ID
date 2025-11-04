@@ -12,8 +12,22 @@
     <img src="/img/logo.png" alt="logo" style="width: 40%" />
     <div class="login-container">
         <h2>Login</h2>
-        <form action="" method="post">
-            <input type="text" name="username" placeholder="Username atau Email" required />
+
+        @if(session('error'))
+        <p style="color:red">{{ session('error') }}</p>
+        @endif
+
+        @if($errors->any())
+        <ul style="color:red">
+            @foreach($errors->all() as $e)
+            <li>{{ $e }}</li>
+            @endforeach
+        </ul>
+        @endif
+
+        <form action="{{ route('login.authenticate') }}" method="POST">
+            @csrf
+            <input type="text" name="login" placeholder="Username atau Email" required value="{{ old('login') }}" />
             <input type="password" name="password" placeholder="Password" required />
             <input type="submit" value="Login" />
         </form>

@@ -53,6 +53,17 @@
     </nav>
     <!-- navbar end -->
 
+    <!-- auth header -->
+    @if(session('username'))
+    <div style="position:fixed; top:70px; right:20px; z-index:2000; color:#fff;">
+        <span style="margin-right:10px;">Hi, {{ session('username') }}</span>
+        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+            @csrf
+            <button type="submit" style="background:#ff4d4d;color:#fff;border-radius:6px;padding:6px 10px;border:none;cursor:pointer;">Logout</button>
+        </form>
+    </div>
+    @endif
+
     <!-- Hero Section start -->
     <div class="carousel next" id="home">
         <!-- list item -->

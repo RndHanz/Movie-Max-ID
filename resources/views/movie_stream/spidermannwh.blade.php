@@ -24,7 +24,7 @@
 
         <!-- Menu -->
         <div class="navbar-nav">
-            <a href="/Movie page/index.html">Home</a>
+            <a href="/moviepage">Home</a>
         </div>
 
         <!-- extra -->
